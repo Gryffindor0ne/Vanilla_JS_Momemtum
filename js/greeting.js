@@ -22,7 +22,7 @@ function paintGreedings(username) {
 const savedUsername = localStorage.getItem(USERNAME_KEY);
 
 if (savedUsername === null) {
-  // LocalStorage 데이터 유뮤에 따른 폼 showing 구현
+  // LocalStorage 데이터 유무에 따른 폼 showing 구현
   loginForm.classList.remove(HIDDEN_CLASSNAME);
   loginForm.addEventListener("submit", onLoginSubmit);
 } else {
