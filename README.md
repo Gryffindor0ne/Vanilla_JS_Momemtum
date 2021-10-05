@@ -1,3 +1,3 @@
-# Vanilla_JS_Momemtum
+# vanilla_js_momemtum
 
-Nomad Coder Study...
+Nomad Coder Study 🤹🏻‍♂️
