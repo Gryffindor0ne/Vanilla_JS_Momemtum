@@ -2,8 +2,17 @@ const toDoForm = document.getElementById("todo-form");
 const toDoInput = toDoForm.querySelector("input");
 const toDoList = document.getElementById("todo-list");
 
+const TODOS_KEY = "todos";
+
+const toDos = [];
+
+function saveToDos() {
+  localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // JSON.stringify 이용한 문자열 변환
+}
+
 function deleteToDo(event) {
-  const li = event.target.parentElement;
+  // 'X' 버튼 눌린 li 삭제 함수
+  const li = event.target.parentElement; // parentElement로 버튼의 상위 태그 찾음.
   li.remove();
 }
 
@@ -23,7 +32,17 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const newToDo = toDoInput.value;
   toDoInput.value = "";
+  toDos.push(newToDo);
   paintToDo(newToDo);
+  saveToDos();
 }
 
 toDoForm.addEventListener("submit", handleToDoSubmit);
+
+const savedTodos = localStorage.getItem(TODOS_KEY);
+
+if (savedTodos !== null) {
+  // null check!
+  const parsedToDos = JSON.parse(savedTodos); // JSON.parse 로 변환!
+  parsedToDos.forEach((item) => console.log("this is the turn of", item));
+}
