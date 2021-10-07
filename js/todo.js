@@ -4,7 +4,7 @@ const toDoList = document.getElementById("todo-list");
 
 const TODOS_KEY = "todos";
 
-const toDos = [];
+let toDos = [];
 
 function saveToDos() {
   localStorage.setItem(TODOS_KEY, JSON.stringify(toDos)); // JSON.stringify 이용한 문자열 변환
@@ -13,6 +13,7 @@ function saveToDos() {
 function deleteToDo(event) {
   // 'X' 버튼 눌린 li 삭제 함수
   const li = event.target.parentElement; // parentElement로 버튼의 상위 태그 찾음.
+
   li.remove();
 }
 
@@ -44,5 +45,6 @@ const savedTodos = localStorage.getItem(TODOS_KEY);
 if (savedTodos !== null) {
   // null check!
   const parsedToDos = JSON.parse(savedTodos); // JSON.parse 로 변환!
-  parsedToDos.forEach((item) => console.log("this is the turn of", item));
+  toDos = parsedToDos;
+  parsedToDos.forEach(paintToDo); //(item) => paintToDo(item)
 }
