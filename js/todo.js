@@ -13,8 +13,10 @@ function saveToDos() {
 function deleteToDo(event) {
   // 'X' 버튼 눌린 li 삭제 함수
   const li = event.target.parentElement; // parentElement로 버튼의 상위 태그 찾음.
-
   li.remove();
+  toDos = toDos.filter((toDo) => toDo.id !== parseInt(li.id));
+  // 'x'가 클릭된 내용과 다른 것만 추려서 다시 만든다. 이때 toDo.id는 number임으로 li.id도 변환하여야 한다.
+  saveToDos(); // 다시 실행하는 것 잊지 말아야~!
 }
 
 function paintToDo(newToDo) {
@@ -36,7 +38,7 @@ function handleToDoSubmit(event) {
   const newToDo = toDoInput.value;
   toDoInput.value = "";
   const newToDoObj = {
-    // id 생성위해 객체로 만든다. (삭제 기능 위한)
+    // id 생성 위해 객체로 만든다. (삭제 기능 위한)
     text: newToDo,
     id: Date.now(),
   };
