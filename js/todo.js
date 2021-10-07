@@ -18,9 +18,11 @@ function deleteToDo(event) {
 }
 
 function paintToDo(newToDo) {
+  // newToDo 에는 이제 객체가 들어온다!
   const li = document.createElement("li");
+  li.id = newToDo.id; // id 부여
   const span = document.createElement("span");
-  span.innerText = newToDo;
+  span.innerText = newToDo.text;
   const button = document.createElement("button");
   button.innerText = "❌";
   button.addEventListener("click", deleteToDo);
@@ -33,8 +35,13 @@ function handleToDoSubmit(event) {
   event.preventDefault();
   const newToDo = toDoInput.value;
   toDoInput.value = "";
-  toDos.push(newToDo);
-  paintToDo(newToDo);
+  const newToDoObj = {
+    // id 생성위해 객체로 만든다. (삭제 기능 위한)
+    text: newToDo,
+    id: Date.now(),
+  };
+  toDos.push(newToDoObj); // newToDoObj 객체를 푸쉬한다.
+  paintToDo(newToDoObj); // newToDoObj 객체를 준다.
   saveToDos();
 }
 
