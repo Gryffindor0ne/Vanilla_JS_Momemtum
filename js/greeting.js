@@ -15,7 +15,7 @@ const onLoginSubmit = function (event) {
 
 function paintGreedings(username) {
   // 반복 사용되는 코드 -> 함수화
-  greeting.innerText = `HELLO ${username}`;
+  greeting.innerText = `Hello ${username}`;
   greeting.classList.remove(HIDDEN_CLASSNAME);
 }
 
