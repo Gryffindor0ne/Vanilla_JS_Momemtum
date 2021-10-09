@@ -2,10 +2,16 @@
   display: none;
 }
 
+* {
+  box-sizing: border-box;
+}
+
 .bg-image {
   position: absolute;
-  width: 100%;
-  height: 100%;
+  min-width: 1400px;
+  /* height: 100%; */
+  max-height: 1400px;
+  min-height: 1200px;
   left: 0px;
   top: 0px;
   right: 0px;
@@ -33,12 +39,38 @@ span {
 }
 
 #clock {
-  margin-top: 250px;
-
+  margin-top: 150px;
   display: grid;
   place-content: center;
-  font-size: 7rem;
+  font-size: 4rem;
   color: ghostwhite;
+}
+#login-form {
+  position: relative;
+  top: 70px;
+  left: 700px;
+}
+#login-form input:first-child {
+  width: 20rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  opacity: 0.5;
+}
+
+#login-form input:nth-child(2) {
+  width: 7rem;
+  height: 3rem;
+  font-size: 1.3rem;
+  font-weight: 600;
+  text-align: center;
+  border: none;
+  border-radius: 10px;
+  opacity: 0.5;
+  margin-left: 2rem;
 }
 
 #quote {
@@ -50,6 +82,7 @@ span {
   font-weight: bold;
   font-family: "Nanum Myeongjo", serif;
   color: whitesmoke;
+  margin-top: 5rem;
 }
 
 #todo-form {
@@ -58,20 +91,32 @@ span {
   align-items: center;
   justify-content: center;
   font-size: 1.7rem;
-  margin-right: 3rem;
 }
 
 #todo-form input {
   text-align: center;
   color: white;
-  font-size: 1rem;
-  width: 650px;
+  font-size: 1.2rem;
+  width: 670px;
   height: 50px;
   background-color: rgba(255, 255, 255, 0.1);
-  font-weight: 500;
+  font-weight: 600;
   border: none;
   margin-bottom: 20px;
   margin-top: 10px;
+}
+::placeholder {
+  color: red;
+}
+
+#todo-list {
+  list-style: none;
+  color: honeydew;
+  font-size: 2.5rem;
+}
+.todoBtn {
+  border: none;
+  background-color: rgba(0, 0, 0, 0);
 }
 
 ul {
@@ -80,5 +125,4 @@ ul {
   align-items: center;
   justify-content: center;
   font-family: "Nanum Myeongjo", serif;
-  margin-right: 3rem;
 }

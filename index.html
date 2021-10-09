@@ -15,14 +15,19 @@
     <title>Momemtum App</title>
   </head>
   <body>
+    <div id="quote">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
     <form id="login-form" class="hidden">
       <input
         required
         maxlength="15"
         type="text"
-        placeholder="What is your name?"
+        placeholder="What's your name?"
       />
-      <input type="submit" value="Log In" />
+      <input id="nameBtn" type="submit" value="Log In" />
     </form>
     <h2 id="clock">00:00:00</h2>
     <h1 id="greeting" class="hidden"></h1>
@@ -30,11 +35,6 @@
       <input type="text" placeholder="What's your focus?" />
     </form>
     <ul id="todo-list"></ul>
-    <div id="quote">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
     <div id="weather">
       <span></span>
       <span></span>
